@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --purple-color: rgb(108, 47, 237);
+    --purple-color2: rgb(142, 123, 182);
+    --black-color: rgb(0, 0, 0);
+    --lilac-color: rgb(228, 218, 250);
+    --white-color: rgb(255, 255, 255);
+    --ash-color: rgb(133, 132, 132);
+    --light-lilac-color: rgb(247, 239, 255);
+    --light-green:rgb(203, 248, 241);
+    --deep-green:rgb(0, 163, 136);
+    --light-orange: rgb(255, 236, 184);
+    --deep-orange:rgb(212, 156, 0);
+    --day: rgb(255, 255, 255);
+    --night: rgb(58, 58, 58);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+html, body{
+    width: 100%;
+    overflow-x: hidden;
+    transition: all .5s ease-in-out;
+}
+[data-theme="day"]{
+    --day: rgb(255, 255, 255);
+    --night: rgb(58, 58, 58);
+    transition: all .5s ease-in-out;
+}
+
+[data-theme="night"]{
+    --night: rgb(255, 255, 255);
+    --day: rgb(58, 58, 58);
+    transition: all .5s ease-in-out;
+
+}
