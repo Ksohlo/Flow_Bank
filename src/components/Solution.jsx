@@ -1,4 +1,4 @@
-import './Solution.css'
+import './solution.css'
 import bankCard from '../assets/ATM-card.svg'
 import sendReceive from '../assets/send-receive.svg'
 import nairaBox from '../assets/currency-logo.svg'
