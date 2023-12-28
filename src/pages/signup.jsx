@@ -1,9 +1,16 @@
 import './signup.css'
 import logo2 from '../assets/bank_logo.svg'
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 
 const SignUp = () => {
+
+    const validateName = (nameValue)=>{
+
+    }
+
+
     return ( 
         <>
         <div className="signupContainer">
@@ -12,7 +19,7 @@ const SignUp = () => {
                 {/* <img src={logo2} /> */}
                 <div className="inputs">
                     <label htmlFor="name">Name </label>
-                    <input type="text" name="name" id="name" placeholder='Enter your name here'/>
+                    <input type="text" name="name" id="name" placeholder='Enter your name here' onKeyDown={ ()=>{validateName()}}/>
                     <span></span>
                 </div>
                 <div className="inputs">
