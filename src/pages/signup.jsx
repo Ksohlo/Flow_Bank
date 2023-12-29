@@ -17,14 +17,14 @@ const SignUp = () => {
     }) 
 
     const handleChange = (e)=>{
-        const [name, value] = e.target
+        const newobject = {...formData, [e.target.name] : e.target.value}
+        setFormData(newobject)
+        
 
-        setFormData({
-            ...formData, [name]: value
-        })
     }
 
     const handleSubmit = (e)=>{
+        e.preventDefault()
         const validationErrors = {}
 
         
@@ -35,31 +35,31 @@ const SignUp = () => {
 
         if(!formData.email.trim()) {
             validationErrors.email = 'An email is required'
-        }else if(!formData.email.match(/[a-z A-Z 0-9 \- \_]* [@] [a-z]{2,7} [\.] [a-z]{2,3} \$/)){
+        }else if(!formData.email.match(/\S+@\S+\.\S+/)){
             validationErrors.email = 'This is an invalid email'
         }
 
         if(!formData.phoneNumber.trim()) {
             validationErrors.phoneNumber = 'A phone number is required'
-        }else if(!formData.email.match(/[0] [7 8 9] [0-9]{9} \$/)){
+        }else if(!/[0-9]*/.test(formData.phoneNumber)){
             validationErrors.phoneNumber = 'This is an invalid phone number'
         }
 
         if(!formData.password.trim()) {
             validationErrors.password = 'A password is required'
-        }else if(!formData.password.length < 6){
-            validationErrors.password = 'A password is needed'
+        }else if(formData.password.length < 6){
+            validationErrors.password = 'Your Password must be at least 6 chars'
         }
 
         if (!formData.confirmPassword.trim()){
             validationErrors.confirmPassword = 'Confirm your password'
         }else if(formData.confirmPassword !== formData.password) {
-            validationErrors.email = 'Your passwords dont match'
+            validationErrors.confirmPassword = 'Your passwords dont match'
         }
 
         setErrors(validationErrors)
 
-        if(Object.keys(validationErrors) === 0){
+        if(Object.keys(validationErrors).length === 0){
             alert('You have successfully created an account with Flow Bank!!!')
         }
     }
@@ -73,7 +73,7 @@ const SignUp = () => {
                 {/* <img src={logo2} /> */}
                 <div className="inputs">
                     <label htmlFor="name">Name </label>
-                    <input type="text" name="name" id="name" placeholder='Enter your name here' onChange={handleChange}/>
+                    <input type="text" name="Name" id="name" placeholder='Enter your name here' onChange={handleChange}/>
                     {errors.name && <span>{errors.name}</span>}
                 </div>
                 <div className="inputs">
@@ -83,7 +83,7 @@ const SignUp = () => {
                 </div>
                 <div className="inputs">
                     <label htmlFor="phone">Phone No </label>
-                    <input type="tel" name="phone" id="phone" placeholder='080 456 6722'onChange={handleChange}/>
+                    <input type="tel" name="phoneNumber" id="phone" placeholder='080 456 6722'onChange={handleChange}/>
                     {errors.phoneNumber && <span>{errors.phoneNumber}</span>}
                 </div>
                 <div className="inputs">
