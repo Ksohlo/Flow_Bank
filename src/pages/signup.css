@@ -15,7 +15,8 @@
 .signupbody{
     background-color: var(--lilac-color);
     width: 420px;
-    height: 350px;
+    height: auto;
+    min-height: 340px;
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0px 0px 7px 1px var(--purple-color);
