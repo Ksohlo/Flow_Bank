@@ -26,9 +26,7 @@ const Login = () => {
         }
 
         if(!loginData.password.trim()){
-            loginErrors.password = 'enter your password'
-        }else if (!loginData.password.match(/\S*/)){
-           loginErrors.password = 'we couldn\'t find this profile on our database'      
+            loginErrors.password = 'You need to enter a password'
         } 
 
         setErrMessage(loginErrors)
