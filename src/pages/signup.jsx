@@ -30,19 +30,21 @@ const SignUp = () => {
         
 
         if (!formData.Name.trim() ) {
-            validationErrors.name = 'A name is required'
-        } 
+            validationErrors.name = 'A name is required';
+        } else if(formData.Name.length < 5) {
+            validationErrors.name = "Your name must more than 5 characters";
+        };
 
         if(!formData.email.trim()) {
             validationErrors.email = 'An email is required'
         }else if(!formData.email.match(/\S+@\S+\.\S+/)){
-            validationErrors.email = 'This is an invalid email'
+            validationErrors.email = 'This is an invalid email';
         }
 
         if(!formData.phoneNumber.trim()) {
-            validationErrors.phoneNumber = 'A phone number is required'
-        }else if(!/[0-9]*/.test(formData.phoneNumber)){
-            validationErrors.phoneNumber = 'This is an invalid phone number'
+            validationErrors.phoneNumber = 'A phone number is required';
+        }else if(!/[0-9]{11}/.test(formData.phoneNumber)){
+            validationErrors.phoneNumber = 'This is an invalid phone number';
         }
 
         if(!formData.password.trim()) {

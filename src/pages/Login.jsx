@@ -23,16 +23,20 @@ const Login = () => {
 
         if(!loginData.name.trim()){
             loginErrors.name = 'name is required'
+        }else if(loginData.name.length < 5) {
+            loginErrors.name = 'Input your Full Name'
         }
 
         if(!loginData.password.trim()){
             loginErrors.password = 'You need to enter a password'
-        } 
+        } else if(loginData.password.length < 5) {
+            loginErrors.password = 'Password must be more than 5 characters'
+        }
 
         setErrMessage(loginErrors)
 
         if (Object.keys(loginErrors).length === 0) {
-            alert('Welcome, user 0834674521')
+            alert('Welcome, current user')
         }
     }
 
