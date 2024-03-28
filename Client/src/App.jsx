@@ -6,11 +6,7 @@ import './App.css'
 import SignUp from './pages/signup';
 import Login from './pages/Login';
 
-
-
 function App() {
-
-
   return (
     <>
       <Router >
