@@ -4,8 +4,8 @@ import NavBar from './pages/NavBar'
 import Home from './pages/Home'
 import './App.css'
 import SignUp from './pages/signup';
-import Login from './pages/Login';
 
+import Login from './pages/Login';
 function App() {
   return (
     <>
